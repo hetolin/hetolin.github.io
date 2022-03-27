@@ -1,0 +1,205 @@
+
+<html>
+
+<head>
+    <link rel="StyleSheet" href="style.css" type="text/css" media="all">
+    <title>SAR-Net: Shape Alignment and Recovery Network \\for Category-level 6D Object Pose and Size Estimation</title>
+    <meta property="og:title" content="SAR-Net: Shape Alignment and Recovery Network for Category-level 6D Object Pose and Size Estimation">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+    <br>
+    <div class="center-div">
+        <span style="font-size:40px">SAR-Net: Shape Alignment and Recovery Network for Category-level 6D Object Pose and Size Estimation</span>
+    </div>
+
+    <br>
+    <table align="center" width="800px">
+        <tbody>
+            <tr>
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="#">Haitao Lin*</a></span>
+                    </div>
+                </td>
+
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="#">Zichang Liu</a></span>
+                    </div>
+                </td>
+
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="#">Chilam Cheang</a></span>
+                    </div>
+                </td>
+              
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="https://yanweifu.github.io/">Yanwei Fu</a></span>
+                    </div>
+                </td>
+              
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="#">Guodong Guo</a></span>
+                    </div>
+                </td>
+                
+                 <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px"><a href="#">Xiangyang Xue</a></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table align="center" width="700px">
+        <tbody>
+            <tr>
+                <td align="center" width="100px">
+                    <div class="center-div">
+                        <span style="font-size:22px">Fudan University &nbsp; &nbsp; IDL, Baidu Reasearch</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <table align="center" width="600px">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="center-div">
+                        <a href="#"><img src="resources/images/overview.png" width="1000px"></a><br>
+                    </div>
+                    <div class="center-div">
+                            <span style="font-size:14px"><i>Overview of Our 4D Compositional Representation.</i></span>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br><br>
+    <hr>
+    <div class="center-div">
+        <h1>Abstract</h1>
+    </div>
+    <p style="text-align:justify">
+        Learning based representation has become the key to the success of many computer vision systems. While many 3D representations have been proposed, it is still an unaddressed problem how to represent a dynamically changing 3D object. In this paper, we introduce a compositional representation for 4D captures, i.e. a deforming 3D object over a temporal span, that disentangles shape, initial state, and motion respectively. Each component is represented by a latent code via a trained encoder. To model the motion, a neural Ordinary Differential Equation (ODE) is trained to update the initial state conditioned on the learned motion code, and a decoder takes the shape code and the updated state code to reconstruct the 3D model at each time stamp. To this end, we propose an Identity Exchange Training (IET) strategy to encourage the network to learn effectively decoupling each component. Extensive experiments demonstrate that the proposed method outperforms existing state-of-the-art deep learning based methods on 4D reconstruction, and significantly improves on various tasks, including motion transfer and completion.
+    </p>
+    <br><br>
+
+
+    <hr>
+    <div class="center-div">
+        <h1 id="paper">Paper and Code</h1>
+    </div>
+    <table align="center" width="600px">
+
+        <tbody>
+            <tr>
+                <td>
+                    <img class="layered-paper-big" style="height:175px" src="resources/images/page1.png">
+                </td>
+                <td>
+                    <span style="font-size:14pt">B. Jiang, Y. Zhang, X. Wei, X. Xue, Y. Fu</span>
+                    <br><br>
+                    <b><span style="display:inline-block;width:600px;font-size:14pt">Learning Compositional Representation for 4D Captures with Neural ODE</span></b>
+                    <br><br>
+                    <span style="font-size:14pt">CVPR 2021.</span>
+                    <br><br>
+                    <span style="font-size:20px">
+                        <a href="https://arxiv.org/abs/2103.08271">[arXiv]</a> &nbsp; &nbsp;
+                        <a href="https://github.com/BoyanJIANG/4D-Compositional-Representation">[GitHub]</a> &nbsp; &nbsp;
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+
+    <hr>
+    <table align="center" width="980px">
+        <tbody>
+            <tr>
+                <td>
+                    <left>
+                        <div class="center-div">
+                            <h1>Video</h1>
+                        </div>
+                        <iframe width="956" height="538" src="https://www.youtube.com/embed/F-zYAPyAmWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    </left>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+        <br><br>
+
+
+    <hr>
+    <div class="center-div">
+        <h1 id="code">Results</h1>
+    </div>
+    <div class="center-div" style="width:1100px">
+        <table align="center" width="1100px">
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="height:90px;border-color:#8E8E8E;border-right-style:solid;border-width:1px">
+                        <div class="center-div">
+                            <img src="resources/images/4d_recons.gif" width="350px"><br>
+                        </div>
+                        <div class="center-div">
+                            <img src="resources/images/future.gif" width="350px"><br>
+                        </div>
+                    </td>
+                    <td rowspan="2" style="height:60px;border-color:#8E8E8E;border-right-style:solid;border-width:1px">
+                        <div class="center-div">
+                            <img src="resources/images/transfer.gif" width="350px"><br>
+                        </div>
+                    </td>
+                    <td rowspan="2">
+                        <div class="center-div">
+                            <img src="resources/images/temporal.gif" width="350px"><br>
+                        </div>
+                        <div class="center-div">
+                            <img src="resources/images/spatial.gif" width="350px"><br>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br><br>
+
+    <hr>
+    <table align="center" width="980px">
+        <tbody>
+            <tr>
+                <td>
+                    <left>
+                        <div class="center-div">
+                            <h1>Acknowledgements</h1>
+                        </div>
+                        <div class="center-div">
+                        Xiangyang Xue and Yanwei Fu are the corresponding authorsThis work was supported in part by NSFC under Grant (No. 62076067), Shanghai Municipal Science and Technology Major Project (2018SHZDZX01).
+                            The website is modified from this <a href="https://walsvid.github.io/Pixel2MeshPlusPlus/">template</a>.
+                        </div>
+                    </left>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+
+
+</body>
+
+</html>
