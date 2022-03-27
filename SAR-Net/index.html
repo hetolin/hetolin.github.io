@@ -91,7 +91,7 @@
         <h1>Abstract</h1>
     </div>
     <p style="text-align:justify">
-        Learning based representation has become the key to the success of many computer vision systems. While many 3D representations have been proposed, it is still an unaddressed problem how to represent a dynamically changing 3D object. In this paper, we introduce a compositional representation for 4D captures, i.e. a deforming 3D object over a temporal span, that disentangles shape, initial state, and motion respectively. Each component is represented by a latent code via a trained encoder. To model the motion, a neural Ordinary Differential Equation (ODE) is trained to update the initial state conditioned on the learned motion code, and a decoder takes the shape code and the updated state code to reconstruct the 3D model at each time stamp. To this end, we propose an Identity Exchange Training (IET) strategy to encourage the network to learn effectively decoupling each component. Extensive experiments demonstrate that the proposed method outperforms existing state-of-the-art deep learning based methods on 4D reconstruction, and significantly improves on various tasks, including motion transfer and completion.
+        Given a single scene image, this paper proposes a method of Category-level 6D Object Pose and Size Estimation (COPSE) from the point cloud of the target object, without external real pose-annotated training data. Specifically, beyond the visual cues in RGB images, we rely on the shape information predominately from the depth (D) channel. The key idea is to explore the shape alignment of each instance against its corresponding category-level template shape, and the symmetric correspondence of each object category for estimating a coarse 3D object shape. Our framework deforms the point cloud of the category-level template shape to align the observed instance point cloud for implicitly representing its 3D rotation. Then we model the symmetric correspondence by predicting symmetric point cloud from the partially observed point cloud. The concatenation of the observed point cloud and symmetric one reconstructs a coarse object shape, thus facilitating object center (3D translation) and 3D size estimation. Extensive experiments on the category-level NOCS benchmark demonstrate that our lightweight model still competes with state-of-the-art approaches that require labeled real-world images. We also deploy our approach to a physical Baxter robot to perform grasping tasks on unseen but category-known instances, and the results further validate the efficacy of our proposed model.
     </p>
     <br><br>
 
@@ -115,8 +115,8 @@
                     <span style="font-size:14pt">CVPR 2021.</span>
                     <br><br>
                     <span style="font-size:20px">
-                        <a href="https://arxiv.org/abs/2103.08271">[arXiv]</a> &nbsp; &nbsp;
-                        <a href="https://github.com/BoyanJIANG/4D-Compositional-Representation">[GitHub]</a> &nbsp; &nbsp;
+                        <a href="#">[arXiv]</a> &nbsp; &nbsp;
+                        <a href="https://github.com/hetolin/SAR-Net">[GitHub]</a> &nbsp; &nbsp;
                     </span>
                 </td>
             </tr>
@@ -133,7 +133,7 @@
                         <div class="center-div">
                             <h1>Video</h1>
                         </div>
-                        <iframe width="956" height="538" src="https://www.youtube.com/embed/F-zYAPyAmWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    </left>
+                        <iframe width="1920" height="1080" src="https://youtu.be/b4CLMdhJV58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    </left>
                 </td>
             </tr>
         </tbody>
