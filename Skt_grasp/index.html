@@ -5,7 +5,7 @@
 <head>
     <link rel="StyleSheet" href="style.css" type="text/css" media="all">
     <title>I Know What You Draw: Learning Grasp Detection Conditioned on a few freehand Sketches</title>
-    <meta property="og:title" content="SAR-Net: Shape Alignment and Recovery Network for Category-level 6D Object Pose and Size Estimation">
+    <meta property="og:title" content="I Know What You Draw: Learning Grasp Detection Conditioned on a few freehand Sketches">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
@@ -69,7 +69,7 @@
         <h1>Abstract</h1>
     </div>
     <p style="text-align:justify">
-        Given a single scene image, this paper proposes a method of Category-level 6D Object Pose and Size Estimation (COPSE) from the point cloud of the target object, without external real pose-annotated training data. Specifically, beyond the visual cues in RGB images, we rely on the shape information predominately from the depth (D) channel. The key idea is to explore the shape alignment of each instance against its corresponding category-level template shape, and the symmetric correspondence of each object category for estimating a coarse 3D object shape. Our framework deforms the point cloud of the category-level template shape to align the observed instance point cloud for implicitly representing its 3D rotation. Then we model the symmetric correspondence by predicting symmetric point cloud from the partially observed point cloud. The concatenation of the observed point cloud and symmetric one reconstructs a coarse object shape, thus facilitating object center (3D translation) and 3D size estimation. Extensive experiments on the category-level NOCS benchmark demonstrate that our lightweight model still competes with state-of-the-art approaches that require labeled real-world images. We also deploy our approach to a physical Baxter robot to perform grasping tasks on unseen but category-known instances, and the results further validate the efficacy of our proposed model.
+        In this paper, we are interested in the problem of generating target grasps by understanding freehand sketches. The sketch is useful for the persons who cannot formulate language and the cases where a textual description is not available on the fly. However, very few works are aware of the usability of this novel interactive way between humans and robots. To this end, we propose a method to generate a potential grasp configuration relevant to the sketch-depicted objects. Due to the inherent ambiguity of sketches with abstract details, we take the advantage of the graph by incorporating the structure of the sketch to enhance the representation ability. This graph-represented sketch is further validated to improve the generalization of the network, capable of learning the sketch-queried grasp detection by using a small collection (around 100 samples) of hand-drawn sketches. Additionally, our model is trained and tested in an end-to-end manner which is easy to be implemented in real-world applications. Experiments on the multi-object VMRD and GraspNet-1Billion datasets demonstrate the good generalization of the proposed method. The physical robot experiments confirm the utility of our method in object-cluttered scenes.
     </p>
     <br><br>
     
@@ -97,13 +97,12 @@
                 <td>
                     <span style="font-size:14pt">H. Lin, C. Cheang, Y. Fu, X. Xue</span>
                     <br><br>
-                    <b><span style="display:inline-block;width:600px;font-size:14pt">SAR-Net: Shape Alignment and Recovery Network for Category-level 6D Object Pose and Size Estimation</span></b>
+                    <b><span style="display:inline-block;width:600px;font-size:14pt">I Know What You Draw: Learning Grasp Detection Conditioned on a few freehand Sketches</span></b>
                     <br><br>
-                    <span style="font-size:14pt">CVPR 2022.</span>
+                    <span style="font-size:14pt">ICRA 2022.</span>
                     <br><br>
                     <span style="font-size:20px">
-                        <a href="https://arxiv.org/abs/2106.14193">[arXiv]</a> &nbsp; &nbsp;
-                        <a href="https://github.com/hetolin/SAR-Net">[GitHub]</a> &nbsp; &nbsp;
+                        <a href="https://arxiv.org/abs/2205.04026">[arXiv]</a> &nbsp; &nbsp;
                     </span>
                 </td>
             </tr>
@@ -138,50 +137,6 @@
 
     </table>
     <br><br>
-
-
-    <hr>
-    <div class="center-div">
-        <h1 id="code">More demos</h1>
-    </div>
-    <div class="center-div" style="width:1100px">
-        <table align="center" width="1100px">
-            <tbody>
-                <tr>
-                    <td rowspan="2" style="height:90px;border-color:#8E8E8E;border-right-style:solid;border-width:1px">
-                        <div class="center-div">
-                            <img src="resources/images/mug_360views.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/bottle_bowl_360views.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/SAR-Net_mug_in_hand.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/SAR-Net_output.gif" width="400px"><br>
-                        </div>
-                    </td>
-  
-                    <td rowspan="2">
-                        <div class="center-div">
-                            <img src="resources/images/robot_delivery_bottle_baxter.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/robot_pour_water_baxter.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/robot_static_pour_water_sawyer.gif" width="400px"><br>
-                        </div>
-                        <div class="center-div">
-                            <img src="resources/images/robot_dynamic_pour_water_sawyer.gif" width="400px"><br>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <br><br>
     
     <hr>
     <div class="center-div">
@@ -211,7 +166,7 @@
                             <h1>Acknowledgements</h1>
                         </div>
                         <div class="center-div">
-                        Xiangyang Xue and Yanwei Fu are the corresponding authors. This work was supported in part by NSFC under Grant (No. 62076067), Shanghai Municipal Science and Technology Major Project (2018SHZDZX01).
+                        Xiangyang Xue and Yanwei Fu are the corresponding authors. This work was supported in part by NSFC under Grant (No. 62076067), STCSM Project (19511120700), and Shanghai Municipal Science and Technology Major Project (No.2021SHZDZX0103).
                             The website is modified from this <a href="https://walsvid.github.io/Pixel2MeshPlusPlus/">template</a>.
                         </div>
                     </left>
