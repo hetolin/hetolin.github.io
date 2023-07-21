@@ -6,7 +6,8 @@
     <meta name="description" content="PourIt!🫗: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring">
     <meta name="keywords" content="Liquid perception, Visual closed-Loop, Robotic pouring">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PourIt!🫗: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring</title>
+    <title>PourIt!: Weakly-supervised Liquid Perception from a Single Image for Visual Closed-Loop Robotic Pouring</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/icon_pourit.jpg">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -89,7 +90,7 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <div class="column is-full_width">
-                            <h1 class="title is-1 publication-title"><p>PourIt!🫗: Weakly-supervised Liquid Perception</p> <p>from a Single Image</p> <p>for Visual Closed-Loop Robotic Pouring</p></h1>
+                            <h1 class="title is-1 publication-title"><p>PourIt!<img src="./resources/images/icon_pourit.jpg" id="pourit" width="5%">: Weakly-supervised Liquid Perception</p> <p>from a Single Image</p> <p>for Visual Closed-Loop Robotic Pouring</p></h1>
                         </div>
 
                         <div class="column is-full_width">
@@ -109,14 +110,14 @@
                             <span class="author-block">Fudan University</span>
                         </div>
                         <div style="text-align:center">
-                            <img src="./resources/images/pourit_logo_text.pdf" width="30%" />
+                            <img src="./resources/images/pourit_logo_text.jpg" width="30%" />
                         </div>
                         <div class="column has-text-centered">
                             <div class="publication-links">
 
                                 <!-- PDF Link. -->
                                 <span class="link-block">
-                                    <a href=""
+                                    <a href="./resources/images/arXiv_pre.pdf"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fas fa-file-pdf"></i>
@@ -125,7 +126,7 @@
                                     </a>
                                 </span>
                                 <span class="link-block">
-                                    <a class="external-link button is-normal is-rounded is-dark" href="static/Text2Tex.pdf">
+                                    <a class="external-link button is-normal is-rounded is-dark" href="./resources/images/arXiv_pre.pdf">
                                         <span class="icon">
                                             <i class="ai ai-arxiv"></i>
                                         </span>
@@ -183,7 +184,7 @@
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
-                <div align="center"><img src="./resources/images/teaser.pdf" width="60%" /></div>
+                <div align="center"><img src="./resources/images/teaser.jpg" width="60%" /></div>
                 <h2 class=" subtitle has-text-centered" style="padding-top: 10px">
                     Our visual closed-loop robotic pouring. Unlike <a href="https://hetolin.github.io/SAR-Net">SAR-Net</a>, our approach recovers a 3D point cloud of the liquid using the source container's pose and 2D liquid perception data.
                     This allows the robot to pour accurately based on visual feedback, even without the depth measurement of the liquid.
@@ -224,7 +225,7 @@
         </div>
         <!-- Paper video. -->
         <div align="center">
-            <img src="./resources/images/pourit_logo_robot.png" width="30%" />
+            <img src="./resources/images/pourit_logo_robot.jpg" width="30%" />
         </div>
         <div class="columns is-centered has-text-centered">
             <div class="column is-three-fifths">
@@ -247,7 +248,7 @@
             <div class="columns is-centered" style="margin-top: 15px">
                 <div class="column is-full-width">
                     <h2 class="title is-3">Method Overview</h2>
-                    <img src="./resources/images/pipeline.pdf"/>
+                    <img src="./resources/images/pipeline.jpg"/>
                     <div class="content has-text-justified" style="padding-top: 15px">
                         <p>The workflow of our proposed <span style="font-size: larger; color: cornflowerblue; ">PourIt!</span> framework. Given the positive and negative samples of images with simple 0/1 image-level labels, we first use the Transformer backbone to extract features and the MLP layers to predict the image classes.
                             Then, the derived CAM is used to index the localization of foreground and background pixels of the feature maps by using the threshold $\epsilon$.
@@ -271,7 +272,7 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3">Examples of our PourIt! Dataset</h2>
                     <div align="center">
-                        <img src="./resources/images/dataset_example.pdf" width="100%"/>
+                        <img src="./resources/images/dataset_example.jpg" width="100%"/>
                     </div>
 
 
@@ -289,8 +290,8 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3">Experimets of Robotic Pouring</h2>
                     <div align="center">
-                        <img src="./resources/images/objects.pdf" width="60%"/>
-                        <img src="./resources/images/vis_robotics.pdf"/>
+                        <img src="./resources/images/objects.jpg" width="60%"/>
+                        <img src="./resources/images/vis_robotics.jpg"/>
                     </div>
 
 
@@ -326,9 +327,9 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3">More Qualatative Results on Datasets</h2>
                     <div align="center">
-                        <img src="./resources/images/vis_dataset_liquid_more.pdf"/>
-                        <img src="./resources/images/vis_dataset_pourit_more1.pdf"/>
-                        <img src="./resources/images/vis_dataset_pourit_more2.pdf"/>
+                        <img src="./resources/images/vis_dataset_liquid_more.jpg"/>
+                        <img src="./resources/images/vis_dataset_pourit_more1.jpg"/>
+                        <img src="./resources/images/vis_dataset_pourit_more2.jpg"/>
                     </div>
 
 
