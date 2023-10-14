@@ -1,1 +1,1 @@
-# hetolin.github.io
+For more details, please check the [Haitao Lin's Homepage](hetolin.github.io)
