@@ -47,7 +47,7 @@ table {
 /**************************************************/
 
 #main {
-    width: 960px; /*调整页面宽度*/
+    width: 1200px; /*调整页面宽度*/
     margin: 0px auto;
 }
 
@@ -59,7 +59,7 @@ table {
 
 p {
     font-size: 18px; /*调整自我介绍字体大小*/
-    line-height: 24px;
+    line-height: 26px;
 }
 
 a {
@@ -119,9 +119,10 @@ h1 {
 }
 
 #profile img {
-    width: 240px; /*调整照片大小*/
+    width: 420px; /*调整照片大小*/
+    /*width: 240px; !*调整照片大小*!*/
     border-radius: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 #profile-name {
@@ -134,6 +135,13 @@ h1 {
 #profile p {
     margin-bottom: 20px;
 }
+
+#profile-intro p .highlight {
+    color: #f66464;
+    font-weight: 700;
+}
+
+
 
 /**************************************************/
 
@@ -293,7 +301,7 @@ h3 {
 
 
 .research-thumb {
-    width: 180px;
+    width: 280px; /*调整research展示图大小*/
     float: left;
     margin-top: 7px;
     padding-right: 30px;
@@ -317,23 +325,29 @@ h3 {
 }
 .research-proj-title {
     color: #003373;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 18px; /*调整论文题目字体大小*/
+    line-height: 28px;
 }
 
 .research-proj-title:hover {
     border-bottom: 1px solid #003373;
 }
 
-.research-proj p {
-    font-size: 14px;
-    line-height: 24px;
+.research-proj p { /*调整论文作者名字字体大小*/
+    font-size: 16px;
+    line-height: 28px;
 }
 
 .research-proj p strong {
     color: #fdc450;
     font-weight: 700;
 }
+
+.research-proj p highlight {
+    color: #f66464;
+    font-weight: 700;
+}
+
 
 #morePubs {
     display: none;
@@ -348,6 +362,21 @@ h3 {
     margin-left: 30px;
 }
 
+
+.badge { /*添加publication左上角的LOGO，如ICCV 2023*/
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    position: absolute;
+    margin-top: .5em;
+    margin-left: -.5em;
+    color: white;
+    /*background-color: #49bf9d;*/
+    background-color: rgba(73, 191, 157, 1.0); /* 0.8 is 80% opacity */
+    font-size: .8em;
+    /*border-radius: 5px; !* Add rounded corners *!*/
+}
 /**************************************************/
 
 .sponsors {
