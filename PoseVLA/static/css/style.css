@@ -1,0 +1,373 @@
+/* =========================================
+   1. 全局变量与基础设置
+   ========================================= */
+:root {
+    --primary-purple: #6d28d9;    /* 主色调：学术紫 */
+    --accent-purple: #8b5cf6;     /* 强调色：亮紫 */
+    --deep-blue: #1e1b4b;         /* 深色文字 */
+    --bg-light: #fdfcff;          /* 网页背景 */
+    --border-color: #e2e8f0;      /* 边框颜色 */
+    --highlight-bg: rgba(139, 92, 246, 0.04); /* “我们的方法”列背景 */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--deep-blue);
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   2. 布局容器 (Global Container)
+   ========================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px; /* 防止小屏幕贴边 */
+}
+
+/* =========================================
+   3. 导航栏 (Navbar)
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(109, 40, 217, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    letter-spacing: -0.02em;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--deep-blue);
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-purple);
+}
+
+/* =========================================
+   4. Hero Section (Header)
+   ========================================= */
+.hero {
+    padding: 160px 20px 60px 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.author-row {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* --- 作者链接样式 (已修复上标间距) --- */
+.author-row a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    margin: 0;           /* 清除默认间距 */
+    margin-left: 12px;   /* 只在左侧保留间距 */
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.author-row a:first-child {
+    margin-left: 0;      /* 第一个名字不需要左边距 */
+}
+
+.author-row a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.affiliations {
+    margin-top: 1.5rem;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.notes {
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: 5px;
+    color: #94a3b8;
+}
+
+/* --- 按钮样式 --- */
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 10px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95rem;
+}
+
+.btn-purple {
+    background: var(--primary-purple);
+    color: white;
+    box-shadow: 0 4px 15px rgba(109, 40, 217, 0.25);
+}
+
+.btn-purple:hover {
+    transform: translateY(-2px);
+    background: var(--accent-purple);
+    box-shadow: 0 8px 25px rgba(109, 40, 217, 0.35);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-purple);
+    color: var(--primary-purple);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: rgba(109, 40, 217, 0.05);
+}
+
+/* =========================================
+   5. 通用卡片容器 (Abstract, Method, Results)
+   ========================================= */
+.glass-card,
+.card-container,
+.performance-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+
+    /* 核心：统一宽度并居中 */
+    max-width: 1000px;
+    width: 100%;
+    margin: 2rem auto;
+    box-sizing: border-box;
+}
+
+.section-title,
+.card-container h3,
+.performance-card h3 {
+    text-align: center;
+    color: var(--deep-blue);
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   6. 摘要 (Abstract)
+   ========================================= */
+.abstract-content {
+    text-align: justify;
+    color: #334155;
+    font-size: 1.05rem;
+}
+
+.abstract-highlight-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(to right, rgba(109, 40, 217, 0.04), transparent);
+    border-left: 4px solid var(--primary-purple);
+    border-radius: 0 8px 8px 0;
+}
+
+/* =========================================
+   7. 图片与架构图 (Figures)
+   ========================================= */
+.architecture-card {
+    text-align: center;
+}
+
+.architecture-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.figure-caption {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #475569;
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.figure-caption strong {
+    color: var(--deep-blue);
+    font-weight: 700;
+}
+
+/* =========================================
+   8. 视频容器 (Video) - 已修复黑线问题
+   ========================================= */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 比例 */
+    height: 0;
+    overflow: hidden;
+    background: transparent; /* 透明背景 */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.video-wrapper video {
+    position: absolute;
+    /* 放大至 101% 以覆盖边缘可能的亚像素黑线 */
+    width: 101%;
+    height: 101%;
+    left: -0.5%;
+    top: -0.5%;
+    object-fit: cover;
+}
+
+/* =========================================
+   9. 表格样式 (Motus Style)
+   ========================================= */
+.performance-table {
+    overflow-x: auto;
+}
+
+.performance-table table {
+    width: 100%;
+    border-collapse: collapse; /* 细边框 */
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.performance-table th,
+.performance-table td {
+    padding: 12px 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.performance-table thead th {
+    background-color: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+}
+
+.task-col {
+    min-width: 180px;
+    text-align: left !important;
+    padding-left: 20px !important;
+    color: var(--deep-blue);
+    font-weight: 600;
+}
+
+/* Our Method 列高亮 */
+.our-method-header {
+    color: var(--primary-purple);
+    background-color: rgba(139, 92, 246, 0.08) !important;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1) !important;
+}
+
+.our-col {
+    background-color: var(--highlight-bg);
+    color: var(--primary-purple);
+}
+
+.our-val {
+    background-color: var(--highlight-bg);
+    font-weight: 700;
+    color: var(--deep-blue);
+}
+
+/* --- Average 行：低饱和度高级灰调 --- */
+.average-row td {
+    background-color: #f3f4f8 !important; /* 极淡灰紫 */
+    color: var(--deep-blue) !important;    /* 深色文字 */
+    font-weight: 800;
+    border-top: 2px solid #d8b4fe !important; /* 柔和浅紫边框 */
+    border-bottom: 1px solid #e2e8f0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.best-score {
+    color: #d97706 !important; /* 古铜金/深琥珀色 */
+    font-weight: 900;
+}
+
+/* 省略号行 */
+.dots-row td {
+    background: #fdfdfd;
+    color: #94a3b8;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   10. 页脚与杂项
+   ========================================= */
+#citation pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.footer {
+    padding: 60px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 40px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .glass-card, .card-container, .performance-card { padding: 20px; }
+    .performance-table { font-size: 0.8rem; }
+}

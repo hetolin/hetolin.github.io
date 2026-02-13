@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Pose Pretraining for Generalizable VLA Policies</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Pose-VLA</div>
+            <div class="nav-links">
+                <a href="#abstract">Abstract</a>
+                <a href="#demo">Demo</a>
+                <a href="#method">Method</a>
+                <a href="#results">Results</a>
+                <a href="#citation">Citation</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Universal Pose Pretraining for Generalizable <br>Vision-Language-Action Policies</h1>
+
+            <div class="hero-authors">
+                <div class="author-row">
+                    <a href="https://hetolin.github.io/" target="_blank">Haitao Lin</a><sup>1,*</sup>,
+                    <a href="https://hanyangyu1021.github.io/" target="_blank">Hanyang Yu</a><sup>2,*,†</sup>,
+                    <a href="#">Jingshun Huang</a><sup>3,*,†</sup>,
+                    <a href="https://cghezhang.github.io/" target="_blank">He Zhang</a><sup>1</sup>,
+                    <a href="https://ygling2008.github.io/" target="_blank">Yonggen Ling</a><sup>1</sup>
+                </div>
+                <div class="author-row">
+                    <a href="https://pingtan.people.ust.hk/index.html" target="_blank">Ping Tan</a><sup>2</sup>,
+                    <a href="https://scholar.google.com/citations?user=DTbhX6oAAAAJ&hl=en" target="_blank">Xiangyang Xue</a><sup>3</sup>,
+                    <a href="http://yanweifu.github.io/" target="_blank">Yanwei Fu</a><sup>3</sup>
+                </div>
+                <div class="affiliations">
+                    <p><sup>1</sup>Tencent Robotics X &nbsp; <sup>2</sup>HKUST &nbsp; <sup>3</sup>Fudan University</p>
+                    <p class="notes">* Equal contribution &nbsp; † Internship at Tencent Robotics X</p>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-purple"><i class="ai ai-arxiv"></i> arXiv</a>
+                <a href="#" class="btn btn-purple"><i class="fab fa-github"></i> Code (Coming Soon)</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Paper</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="abstract" class="section">
+        <div class="container">
+            <div class="glass-card">
+                <h2 class="section-title">Abstract</h2>
+                <div class="abstract-content">
+                    <p>Existing Vision-Language-Action (VLA) models often suffer from feature collapse and low training efficiency because they entangle high-level perception with sparse, embodiment-specific action supervision. Since these models typically rely on VLM backbones optimized for Visual Question Answering (VQA), they excel at semantic identification but often overlook subtle 3D state variations that dictate distinct action patterns.</p>
+                    <p>To resolve these misalignments, we propose <strong>Pose-VLA</strong>, a decoupled paradigm that separates VLA training into a pre-training phase for extracting universal 3D spatial priors in a unified camera-centric space, and a post-training phase for efficient embodiment alignment within robot-specific action space.</p>
+                    <div class="abstract-highlight-box">
+                        <p>Extensive evaluations demonstrate that Pose-VLA achieves state-of-the-art results on <strong>RoboTwin 2.0 with a 79.5% average success rate</strong> and competitive performance on <strong>LIBERO at 96.0%</strong>. Real-world experiments further showcase robust generalization across diverse objects using only 100 demonstrations per task.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="section" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Video Demo</h2>
+            <div class="card-container" style="padding: 10px;">
+                <div class="video-wrapper">
+                    <video controls playsinline loop preload="metadata">
+                        <source src="resources/videos/posevla.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="figure-caption" style="margin-top: 15px; text-align: center;">
+                    <strong>Video 1: Pose-VLA Execution.</strong> Real-world experiments showcasing robust manipulation across diverse tasks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="method" class="section">
+        <div class="container">
+            <h2 class="section-title">Method Overview</h2>
+
+            <div class="card-container architecture-card">
+                <img src="resources/images/pipeline.jpg" alt="Pose-VLA Architecture Diagram" class="architecture-img">
+
+                <p class="figure-caption">
+                    <strong>Figure 1: Pipeline of Pose-VLA.</strong> Pose-VLA decouples VLA training into: (1) <strong>Pre-training</strong> for extracting universal 3D spatial priors in a camera-centric space, and (2) <strong>Post-training</strong> for embodiment alignment. The VLM predicts a structured sequence $\mathcal{S} = (\tau_1, \dots, \tau_T)$ via next-token prediction, where each tuple $\tau_t = \{\mathbf{c}_t, \mathbf{b}_t, \mathbf{p}_t\}$ consists of a category $\mathbf{c}_t$, 2D box center $\mathbf{b}_t$, and camera-centric pose $\mathbf{p}_t$. To enhance spatial reasoning, auxiliary 3D geometry priors are integrated via additive fusion with RGB embeddings, analogous to positional encodings. This unified format enables seamless knowledge transfer from diverse 3D datasets to robotic domains, achieving robust alignment with minimal demonstrations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="section">
+        <div class="container">
+            <h2 class="section-title">Experimental Results</h2>
+
+            <div class="card-container architecture-card" style="margin-bottom: 40px;">
+                <h3>Universal 3D Spatial Grounding</h3>
+
+                <img src="resources/images/vis_3d.jpg" alt="3D Spatial Grounding Visualization" class="architecture-img">
+
+                <p class="figure-caption">
+                    <strong>Figure 2: Generalization of 3D Spatial Grounding.</strong>
+                    Pose-VLA exhibits robust generalization across various unseen settings, ranging from indoor tabletop layouts to complex robotic manipulation workspaces, providing more precise geometric localization than baseline methods.
+                </p>
+            </div>
+
+            <div class="performance-card">
+                <h3>Comparison on RoboTwin 2.0 Simulation</h3>
+                <div class="performance-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="task-col">Manipulation Task</th>
+                                <th colspan="2">$\pi_0$</th>
+                                <th colspan="2">$\pi_{0.5}$</th>
+                                <th colspan="2">$\pi_0$ (PaliGemma)</th>
+                                <th colspan="2" class="our-method-header">Pose-VLA (w/o depth)</th>
+                            </tr>
+                            <tr class="sub-header">
+                                <th>Easy</th><th>Hard</th>
+                                <th>Easy</th><th>Hard</th>
+                                <th>Easy</th><th>Hard</th>
+                                <th class="our-col">Easy</th><th class="our-col">Hard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Adjust Bottle</td><td>70%</td><td>57%</td><td>62%</td><td>69%</td><td>67%</td><td>47%</td><td class="our-val">97%</td><td class="our-val">77%</td></tr>
+                            <tr><td>Beat Block Hammer</td><td>80%</td><td>73%</td><td>78%</td><td>93%</td><td>40%</td><td>37%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Click Alarmclock</td><td>83%</td><td>73%</td><td>92%</td><td>89%</td><td>80%</td><td>57%</td><td class="our-val">83%</td><td class="our-val">93%</td></tr>
+                            <tr><td>Dump Bin Bigbin</td><td>100%</td><td>90%</td><td>89%</td><td>97%</td><td>73%</td><td>77%</td><td class="our-val">97%</td><td class="our-val">97%</td></tr>
+                            <tr><td>Grab Roller</td><td>93%</td><td>97%</td><td>100%</td><td>100%</td><td>53%</td><td>57%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>
+                            <tr><td>Handover Block</td><td>33%</td><td>40%</td><td>84%</td><td>57%</td><td>7%</td><td>17%</td><td class="our-val">73%</td><td class="our-val">80%</td></tr>
+                            <tr><td>Lift Pot</td><td>63%</td><td>73%</td><td>100%</td><td>85%</td><td>37%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">97%</td></tr>
+                            <tr><td>Move Pillbottle Pad</td><td>73%</td><td>67%</td><td>85%</td><td>61%</td><td>10%</td><td>20%</td><td class="our-val">90%</td><td class="our-val">87%</td></tr>
+
+                            <tr class="dots-row"><td colspan="9">... (50 tasks in total) ...</td></tr>
+
+                            <tr><td>Open Laptop</td><td>73%</td><td>70%</td><td>88%</td><td>96%</td><td>67%</td><td>70%</td><td class="our-val">93%</td><td class="our-val">93%</td></tr>
+                            <tr><td>Pick Dual Bottles</td><td>47%</td><td>50%</td><td>21%</td><td>63%</td><td>10%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place A2b Left</td><td>60%</td><td>43%</td><td>84%</td><td>82%</td><td>27%</td><td>10%</td><td class="our-val">90%</td><td class="our-val">80%</td></tr>
+                            <tr><td>Place Cans Plasticbox</td><td>83%</td><td>73%</td><td>90%</td><td>84%</td><td>23%</td><td>17%</td><td class="our-val">97%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place Container Plate</td><td>93%</td><td>100%</td><td>89%</td><td>95%</td><td>90%</td><td>80%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>
+                            <tr><td>Place Dual Shoes</td><td>63%</td><td>50%</td><td>93%</td><td>75%</td><td>3%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">77%</td></tr>
+                            <tr><td>Place Object Scale</td><td>70%</td><td>43%</td><td>82%</td><td>80%</td><td>10%</td><td>10%</td><td class="our-val">67%</td><td class="our-val">83%</td></tr>
+                            <tr><td>Place Phone Stand</td><td>70%</td><td>57%</td><td>83%</td><td>81%</td><td>30%</td><td>20%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place Shoe</td><td>87%</td><td>80%</td><td>96%</td><td>93%</td><td>23%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="average-row">
+                                <td>Average (%)</td>
+                                <td>67.00</td><td>65.12</td>
+                                <td>79.48</td><td>76.16</td>
+                                <td>35.40</td><td>33.36</td>
+                                <td class="best-score">79.91</td><td class="best-score">79.10</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="citation" class="section">
+        <div class="container">
+            <h2 class="section-title">Citation</h2>
+            <div class="glass-card">
+                <div class="abstract-content" style="background: #f1f5f9; padding: 20px; border-radius: 8px; overflow-x: auto;">
+<pre style="margin: 0; font-family: monospace; font-size: 0.9rem;"><code>@misc{lin2026posevla,
+    title={Universal Pose Pretraining for Generalizable Vision-Language-Action Policies},
+    author={Haitao Lin and Hanyang Yu and Jingshun Huang and He Zhang and Yonggen Ling and Ping Tan and Xiangyang Xue and Yanwei Fu},
+    year={2026},
+    eprint={YOUR_ARXIV_ID},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="padding: 40px 0; text-align: center; color: #64748b; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 Pose-VLA Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
