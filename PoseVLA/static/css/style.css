@@ -25,7 +25,7 @@ body {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px; /* 防止小屏幕贴边 */
+    padding: 0 20px;
 }
 
 /* =========================================
@@ -73,7 +73,7 @@ body {
 }
 
 /* =========================================
-   4. Hero Section (Header)
+   4. Hero Section (Header) & 动画主标题
    ========================================= */
 .hero {
     padding: 160px 20px 60px 20px;
@@ -83,11 +83,22 @@ body {
 .hero-title {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    /* 流体渐变背景 */
+    background: linear-gradient(270deg, #4f46e5, #7c3aed, #db2777, #4f46e5);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    /* 流体动画与微光阴影 */
+    animation: gradientFlow 8s ease infinite;
+    filter: drop-shadow(0px 4px 15px rgba(124, 58, 237, 0.15));
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .author-row {
@@ -95,18 +106,17 @@ body {
     font-size: 1.1rem;
 }
 
-/* --- 作者链接样式 (已修复上标间距) --- */
 .author-row a {
     color: var(--primary-purple);
     text-decoration: none;
-    margin: 0;           /* 清除默认间距 */
-    margin-left: 12px;   /* 只在左侧保留间距 */
+    margin: 0;
+    margin-left: 12px;
     font-weight: 500;
     transition: opacity 0.2s;
 }
 
 .author-row a:first-child {
-    margin-left: 0;      /* 第一个名字不需要左边距 */
+    margin-left: 0;
 }
 
 .author-row a:hover {
@@ -127,7 +137,7 @@ body {
     color: #94a3b8;
 }
 
-/* --- 按钮样式 --- */
+/* --- 按钮样式 (Bouncy弹性微交互) --- */
 .hero-buttons {
     margin-top: 30px;
 }
@@ -139,7 +149,8 @@ body {
     font-weight: 600;
     display: inline-block;
     margin: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Q弹物理惯性 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-size: 0.95rem;
 }
 
@@ -150,9 +161,11 @@ body {
 }
 
 .btn-purple:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     background: var(--accent-purple);
-    box-shadow: 0 8px 25px rgba(109, 40, 217, 0.35);
+    /* 霓虹双层发光 */
+    box-shadow: 0 12px 30px rgba(109, 40, 217, 0.4),
+                0 0 15px rgba(139, 92, 246, 0.3);
 }
 
 .btn-outline {
@@ -162,11 +175,79 @@ body {
 }
 
 .btn-outline:hover {
+    transform: translateY(-4px);
     background: rgba(109, 40, 217, 0.05);
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    /* 镂空霓虹内/外发光 */
+    box-shadow: 0 10px 25px rgba(109, 40, 217, 0.15),
+                inset 0 0 10px rgba(109, 40, 217, 0.05);
 }
 
 /* =========================================
-   5. 通用卡片容器 (Abstract, Method, Results)
+   5. RSS 2026 会议徽章 (Conference Badge)
+   ========================================= */
+.conference-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.05), rgba(219, 39, 119, 0.05));
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    padding: 10px 28px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(8px);
+    /* 呼吸发光动画 */
+    animation: glowPulse 2.5s infinite alternate ease-in-out;
+}
+
+.conf-title {
+    color: var(--deep-blue);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.conf-title strong {
+    background: linear-gradient(135deg, #4f46e5 0%, #db2777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    font-size: 1.25rem;
+    margin-left: 4px;
+}
+
+.conf-details {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 6px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.conf-details i {
+    color: var(--accent-purple);
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(109, 40, 217, 0.15),
+                    inset 0 0 10px rgba(109, 40, 217, 0.05);
+        border-color: rgba(109, 40, 217, 0.3);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(219, 39, 119, 0.3),
+                    inset 0 0 15px rgba(219, 39, 119, 0.1);
+        border-color: rgba(219, 39, 119, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+/* =========================================
+   6. 通用卡片容器 (Abstract, Method, Results)
    ========================================= */
 .glass-card,
 .card-container,
@@ -176,8 +257,6 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(0,0,0,0.02);
-
-    /* 核心：统一宽度并居中 */
     max-width: 1000px;
     width: 100%;
     margin: 2rem auto;
@@ -200,7 +279,7 @@ body {
 }
 
 /* =========================================
-   6. 摘要 (Abstract)
+   7. 摘要 (Abstract)
    ========================================= */
 .abstract-content {
     text-align: justify;
@@ -217,7 +296,7 @@ body {
 }
 
 /* =========================================
-   7. 图片与架构图 (Figures)
+   8. 图片与架构图 (Figures)
    ========================================= */
 .architecture-card {
     text-align: center;
@@ -247,14 +326,14 @@ body {
 }
 
 /* =========================================
-   8. 视频容器 (Video) - 已修复黑线问题
+   9. 视频容器 (Video)
    ========================================= */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 比例 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    background: transparent; /* 透明背景 */
+    background: transparent;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -262,7 +341,6 @@ body {
 
 .video-wrapper video {
     position: absolute;
-    /* 放大至 101% 以覆盖边缘可能的亚像素黑线 */
     width: 101%;
     height: 101%;
     left: -0.5%;
@@ -271,7 +349,7 @@ body {
 }
 
 /* =========================================
-   9. 表格样式 (Motus Style)
+   10. 表格样式 (Motus Style)
    ========================================= */
 .performance-table {
     overflow-x: auto;
@@ -279,7 +357,7 @@ body {
 
 .performance-table table {
     width: 100%;
-    border-collapse: collapse; /* 细边框 */
+    border-collapse: collapse;
     border: 1px solid var(--border-color);
     font-size: 0.9rem;
     color: #475569;
@@ -306,7 +384,6 @@ body {
     font-weight: 600;
 }
 
-/* Our Method 列高亮 */
 .our-method-header {
     color: var(--primary-purple);
     background-color: rgba(139, 92, 246, 0.08) !important;
@@ -324,23 +401,21 @@ body {
     color: var(--deep-blue);
 }
 
-/* --- Average 行：低饱和度高级灰调 --- */
 .average-row td {
-    background-color: #f3f4f8 !important; /* 极淡灰紫 */
-    color: var(--deep-blue) !important;    /* 深色文字 */
+    background-color: #f3f4f8 !important;
+    color: var(--deep-blue) !important;
     font-weight: 800;
-    border-top: 2px solid #d8b4fe !important; /* 柔和浅紫边框 */
+    border-top: 2px solid #d8b4fe !important;
     border-bottom: 1px solid #e2e8f0;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .best-score {
-    color: #d97706 !important; /* 古铜金/深琥珀色 */
+    color: #d97706 !important;
     font-weight: 900;
 }
 
-/* 省略号行 */
 .dots-row td {
     background: #fdfdfd;
     color: #94a3b8;
@@ -349,7 +424,7 @@ body {
 }
 
 /* =========================================
-   10. 页脚与杂项
+   11. 页脚与杂项
    ========================================= */
 #citation pre {
     white-space: pre-wrap;
