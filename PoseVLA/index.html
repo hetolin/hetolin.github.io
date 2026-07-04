@@ -73,11 +73,10 @@
             </div>
 
             <div class="hero-buttons">
-                <a href="http://arxiv.org/abs/2602.19710" target="_blank" class="btn btn-purple"><i class="ai ai-arxiv"></i> arXiv</a>
-                <a href="https://github.com/hetolin/PoseVLA" class="btn btn-purple"><i class="fab fa-github"></i> Code(Released)</a>
-                <a href="https://www.modelscope.ai/models/hanyangyu1021/PoseVLA-robotwin/" target="_blank" class="btn btn-purple"><i class="fas fa-database"></i> Model(Released)</a>
-                <a href="http://arxiv.org/pdf/2602.19710" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Paper</a>
-                <a href="resources/poster.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-chalkboard"></i> Poster</a>
+                <a href="http://arxiv.org/pdf/2602.19710" target="_blank" class="btn btn-purple"><i class="fas fa-file-pdf"></i> Paper</a>
+                <a href="https://github.com/hetolin/PoseVLA" target="_blank" class="btn btn-purple"><i class="fab fa-github"></i> Code</a>
+                <a href="https://www.modelscope.ai/models/hanyangyu1021/PoseVLA-robotwin/" target="_blank" class="btn btn-purple"><i class="fas fa-database"></i> ModelScope</a>
+                <a href="#poster-display" class="btn btn-outline"><i class="fas fa-chalkboard"></i> Poster</a>
             </div>
         </div>
     </header>
@@ -90,10 +89,10 @@
                     <p>Existing Vision-Language-Action (VLA) models often suffer from feature collapse and low training efficiency because they entangle high-level perception with sparse, embodiment-specific action supervision. Since these models typically rely on VLM backbones optimized for Visual Question Answering (VQA), they excel at semantic identification but often overlook subtle 3D state variations that dictate distinct action patterns.</p>
                     <p>To resolve these misalignments, we propose <strong>Pose-VLA</strong>, a decoupled paradigm that separates VLA training into a pre-training phase for extracting universal 3D spatial priors in a unified camera-centric space, and a post-training phase for efficient embodiment alignment within robot-specific action space.</p>
                     <div class="abstract-highlight-box">
-                        <p style="margin: 0 0 0.75rem 0;">Extensive evaluations demonstrate that Pose-VLA achieves results on <strong>RoboTwin 2.0 with a 79.5% average success rate</strong> and competitive performance on <strong>LIBERO at 96.0%</strong>. Real-world experiments further showcase robust generalization across diverse objects using only 100 demonstrations per task.</p>
+                        <p style="margin: 0 0 0.75rem 0;">Extensive evaluations demonstrate that Pose-VLA achieves state-of-the-art results on <strong>RoboTwin 2.0 with a 79.5% average success rate</strong> and competitive performance on <strong>LIBERO at 96.0%</strong>. Real-world experiments further showcase robust generalization across diverse objects using only 100 demonstrations per task.</p>
                         <div style="display: flex; align-items: center; gap: 0.5rem; color: #4f46e5; font-weight: 600; font-size: 0.95rem; padding-top: 0.75rem; border-top: 1px dashed rgba(79, 70, 229, 0.3);">
                             <i class="fas fa-fire" style="color: #ef4444;"></i>
-                            <span>July 2026 Update: Scaled training pushes RoboTwin upper bound to <strong>89.4% (Clean)</strong> and <strong>88.6% (Random)</strong>! <a href="#results" style="text-decoration: underline; color: #4f46e5;">See details below.</a></span>
+                            <span>July 2026 Update: Scaled training pushes RoboTwin upper bound to <strong>89.4% (Clean)</strong> and <strong>88.6% (Random)</strong>! <a href="#latest-update" style="text-decoration: underline; color: #4f46e5;">See details below.</a></span>
                         </div>
                     </div>
                 </div>
@@ -215,8 +214,7 @@
 <!--                    </table>-->
 
                 </div>
-
-                <div style="margin-top: 2rem; background: linear-gradient(to right, #f8fafc, #f1f5f9); border: 1px solid #e2e8f0; border-left: 4px solid #6366f1; border-radius: 8px; padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div id="latest-update" style="margin-top: 2rem; background: linear-gradient(to right, #f8fafc, #f1f5f9); border: 1px solid #e2e8f0; border-left: 4px solid #6366f1; border-radius: 8px; padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); scroll-margin-top: 100px;">
                     <div style="color: #6366f1; font-size: 1.5rem; margin-top: 0.2rem;">
                         <i class="fas fa-rocket"></i>
                     </div>
