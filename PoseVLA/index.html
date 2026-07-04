@@ -76,7 +76,7 @@
                 <a href="http://arxiv.org/pdf/2602.19710" target="_blank" class="btn btn-purple"><i class="fas fa-file-pdf"></i> Paper</a>
                 <a href="https://github.com/hetolin/PoseVLA" target="_blank" class="btn btn-purple"><i class="fab fa-github"></i> Code</a>
                 <a href="https://www.modelscope.ai/models/hanyangyu1021/PoseVLA-robotwin/" target="_blank" class="btn btn-purple"><i class="fas fa-database"></i> ModelScope</a>
-                <a href="#poster-display" class="btn btn-outline"><i class="fas fa-chalkboard"></i> Poster</a>
+                <a href="resources/images/poster.png" target="_blank" class="btn btn-outline"><i class="fas fa-chalkboard"></i> Poster</a>
             </div>
         </div>
     </header>
@@ -150,68 +150,69 @@
 
 
             <div class="card-container architecture-card" style="margin-bottom: 40px;">
-                <h3>Universal 3D Spatial Grounding</h3>
+                <h2>1. Universal 3D Spatial Grounding</h2>
                 <img src="resources/images/bench_3d.jpg" alt="3D Spatial Grounding Benchmark" class="architecture-img">
                 <h3>Generalizes to unseen tabletops & robot workspaces</h3>
                 <img src="resources/images/vis_3d.jpg" alt="3D Spatial Grounding Visualization" class="architecture-img">
             </div>
 
-            <div class="card-container architecture-card" style="margin-bottom: 40px;">
-                <h3>Simulation Benchmark</h3>
-                <img src="resources/images/sim.jpg" alt="Sim Benchmark" class="architecture-img">
-            </div>
+
 
             <div class="performance-card">
+                <div class="card-container architecture-card" style="margin-bottom: 40px;">
+                    <h2>2. Simulation Benchmark</h2>
+                    <img src="resources/images/sim.jpg" alt="Sim Benchmark" class="architecture-img">
+                </div>
                 <h3>Comparison on RoboTwin 2.0 Simulation</h3>
                 <div class="performance-table">
-<!--                    <table>-->
-<!--                        <thead>-->
-<!--                            <tr>-->
-<!--                                <th rowspan="2" class="task-col">Manipulation Task</th>-->
-<!--                                <th colspan="2">$\pi_0$</th>-->
-<!--                                <th colspan="2">$\pi_{0.5}$</th>-->
-<!--                                <th colspan="2">$\pi_0$ (PaliGemma)</th>-->
-<!--                                <th colspan="2" class="our-method-header">Pose-VLA (w/o depth)</th>-->
-<!--                            </tr>-->
-<!--                            <tr class="sub-header">-->
-<!--                                <th>Easy</th><th>Hard</th>-->
-<!--                                <th>Easy</th><th>Hard</th>-->
-<!--                                <th>Easy</th><th>Hard</th>-->
-<!--                                <th class="our-col">Easy</th><th class="our-col">Hard</th>-->
-<!--                            </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                            <tr><td>Adjust Bottle</td><td>70%</td><td>57%</td><td>62%</td><td>69%</td><td>67%</td><td>47%</td><td class="our-val">97%</td><td class="our-val">77%</td></tr>-->
-<!--                            <tr><td>Beat Block Hammer</td><td>80%</td><td>73%</td><td>78%</td><td>93%</td><td>40%</td><td>37%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>-->
-<!--                            <tr><td>Click Alarmclock</td><td>83%</td><td>73%</td><td>92%</td><td>89%</td><td>80%</td><td>57%</td><td class="our-val">83%</td><td class="our-val">93%</td></tr>-->
-<!--                            <tr><td>Dump Bin Bigbin</td><td>100%</td><td>90%</td><td>89%</td><td>97%</td><td>73%</td><td>77%</td><td class="our-val">97%</td><td class="our-val">97%</td></tr>-->
-<!--                            <tr><td>Grab Roller</td><td>93%</td><td>97%</td><td>100%</td><td>100%</td><td>53%</td><td>57%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>-->
-<!--                            <tr><td>Handover Block</td><td>33%</td><td>40%</td><td>84%</td><td>57%</td><td>7%</td><td>17%</td><td class="our-val">73%</td><td class="our-val">80%</td></tr>-->
-<!--                            <tr><td>Lift Pot</td><td>63%</td><td>73%</td><td>100%</td><td>85%</td><td>37%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">97%</td></tr>-->
-<!--                            <tr><td>Move Pillbottle Pad</td><td>73%</td><td>67%</td><td>85%</td><td>61%</td><td>10%</td><td>20%</td><td class="our-val">90%</td><td class="our-val">87%</td></tr>-->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="task-col">Manipulation Task</th>
+                                <th colspan="2">$\pi_0$</th>
+                                <th colspan="2">$\pi_{0.5}$</th>
+                                <th colspan="2">$\pi_0$ (PaliGemma)</th>
+                                <th colspan="2" class="our-method-header">Pose-VLA (w/o depth)</th>
+                            </tr>
+                            <tr class="sub-header">
+                                <th>Easy</th><th>Hard</th>
+                                <th>Easy</th><th>Hard</th>
+                                <th>Easy</th><th>Hard</th>
+                                <th class="our-col">Easy</th><th class="our-col">Hard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Adjust Bottle</td><td>70%</td><td>57%</td><td>62%</td><td>69%</td><td>67%</td><td>47%</td><td class="our-val">97%</td><td class="our-val">77%</td></tr>
+                            <tr><td>Beat Block Hammer</td><td>80%</td><td>73%</td><td>78%</td><td>93%</td><td>40%</td><td>37%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Click Alarmclock</td><td>83%</td><td>73%</td><td>92%</td><td>89%</td><td>80%</td><td>57%</td><td class="our-val">83%</td><td class="our-val">93%</td></tr>
+                            <tr><td>Dump Bin Bigbin</td><td>100%</td><td>90%</td><td>89%</td><td>97%</td><td>73%</td><td>77%</td><td class="our-val">97%</td><td class="our-val">97%</td></tr>
+                            <tr><td>Grab Roller</td><td>93%</td><td>97%</td><td>100%</td><td>100%</td><td>53%</td><td>57%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>
+                            <tr><td>Handover Block</td><td>33%</td><td>40%</td><td>84%</td><td>57%</td><td>7%</td><td>17%</td><td class="our-val">73%</td><td class="our-val">80%</td></tr>
+                            <tr><td>Lift Pot</td><td>63%</td><td>73%</td><td>100%</td><td>85%</td><td>37%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">97%</td></tr>
+                            <tr><td>Move Pillbottle Pad</td><td>73%</td><td>67%</td><td>85%</td><td>61%</td><td>10%</td><td>20%</td><td class="our-val">90%</td><td class="our-val">87%</td></tr>
 
-<!--                            <tr class="dots-row"><td colspan="9">... (50 tasks in total) ...</td></tr>-->
+                            <tr class="dots-row"><td colspan="9">... (50 tasks in total) ...</td></tr>
 
-<!--                            <tr><td>Open Laptop</td><td>73%</td><td>70%</td><td>88%</td><td>96%</td><td>67%</td><td>70%</td><td class="our-val">93%</td><td class="our-val">93%</td></tr>-->
-<!--                            <tr><td>Pick Dual Bottles</td><td>47%</td><td>50%</td><td>21%</td><td>63%</td><td>10%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>-->
-<!--                            <tr><td>Place A2b Left</td><td>60%</td><td>43%</td><td>84%</td><td>82%</td><td>27%</td><td>10%</td><td class="our-val">90%</td><td class="our-val">80%</td></tr>-->
-<!--                            <tr><td>Place Cans Plasticbox</td><td>83%</td><td>73%</td><td>90%</td><td>84%</td><td>23%</td><td>17%</td><td class="our-val">97%</td><td class="our-val">87%</td></tr>-->
-<!--                            <tr><td>Place Container Plate</td><td>93%</td><td>100%</td><td>89%</td><td>95%</td><td>90%</td><td>80%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>-->
-<!--                            <tr><td>Place Dual Shoes</td><td>63%</td><td>50%</td><td>93%</td><td>75%</td><td>3%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">77%</td></tr>-->
-<!--                            <tr><td>Place Object Scale</td><td>70%</td><td>43%</td><td>82%</td><td>80%</td><td>10%</td><td>10%</td><td class="our-val">67%</td><td class="our-val">83%</td></tr>-->
-<!--                            <tr><td>Place Phone Stand</td><td>70%</td><td>57%</td><td>83%</td><td>81%</td><td>30%</td><td>20%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>-->
-<!--                            <tr><td>Place Shoe</td><td>87%</td><td>80%</td><td>96%</td><td>93%</td><td>23%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>-->
-<!--                        </tbody>-->
-<!--                        <tfoot>-->
-<!--                            <tr class="average-row">-->
-<!--                                <td>Average (%)</td>-->
-<!--                                <td>67.00</td><td>65.12</td>-->
-<!--                                <td>79.48</td><td>76.16</td>-->
-<!--                                <td>35.40</td><td>33.36</td>-->
-<!--                                <td class="best-score">79.91</td><td class="best-score">79.10</td>-->
-<!--                            </tr>-->
-<!--                        </tfoot>-->
-<!--                    </table>-->
+                            <tr><td>Open Laptop</td><td>73%</td><td>70%</td><td>88%</td><td>96%</td><td>67%</td><td>70%</td><td class="our-val">93%</td><td class="our-val">93%</td></tr>
+                            <tr><td>Pick Dual Bottles</td><td>47%</td><td>50%</td><td>21%</td><td>63%</td><td>10%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place A2b Left</td><td>60%</td><td>43%</td><td>84%</td><td>82%</td><td>27%</td><td>10%</td><td class="our-val">90%</td><td class="our-val">80%</td></tr>
+                            <tr><td>Place Cans Plasticbox</td><td>83%</td><td>73%</td><td>90%</td><td>84%</td><td>23%</td><td>17%</td><td class="our-val">97%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place Container Plate</td><td>93%</td><td>100%</td><td>89%</td><td>95%</td><td>90%</td><td>80%</td><td class="our-val">97%</td><td class="our-val">100%</td></tr>
+                            <tr><td>Place Dual Shoes</td><td>63%</td><td>50%</td><td>93%</td><td>75%</td><td>3%</td><td>0%</td><td class="our-val">87%</td><td class="our-val">77%</td></tr>
+                            <tr><td>Place Object Scale</td><td>70%</td><td>43%</td><td>82%</td><td>80%</td><td>10%</td><td>10%</td><td class="our-val">67%</td><td class="our-val">83%</td></tr>
+                            <tr><td>Place Phone Stand</td><td>70%</td><td>57%</td><td>83%</td><td>81%</td><td>30%</td><td>20%</td><td class="our-val">87%</td><td class="our-val">87%</td></tr>
+                            <tr><td>Place Shoe</td><td>87%</td><td>80%</td><td>96%</td><td>93%</td><td>23%</td><td>30%</td><td class="our-val">100%</td><td class="our-val">87%</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="average-row">
+                                <td>Average (%)</td>
+                                <td>67.00</td><td>65.12</td>
+                                <td>79.48</td><td>76.16</td>
+                                <td>35.40</td><td>33.36</td>
+                                <td class="best-score">79.91</td><td class="best-score">79.10</td>
+                            </tr>
+                        </tfoot>
+                    </table>
 
                 </div>
                 <div id="latest-update" style="margin-top: 2rem; background: linear-gradient(to right, #f8fafc, #f1f5f9); border: 1px solid #e2e8f0; border-left: 4px solid #6366f1; border-radius: 8px; padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); scroll-margin-top: 100px;">
@@ -232,25 +233,19 @@
                         </p>
                     </div>
                 </div>
-
-            <div class="card-container architecture-card" style="margin-bottom: 40px; margin-top: 40px;">
-                <h3>Real-world Tasks</h3>
-                <img src="resources/images/real.jpg" alt="Real-world Benchmark" class="architecture-img">
-            </div>
-
         </div>
-    </section>
 
-    <section id="ablation" class="section">
-        <div class="container">
-            <h2 class="section-title">Ablation Results</h2>
-
-            <div class="card-container architecture-card" style="margin-bottom: 40px;">
-                <img src="resources/images/ablation.jpg" alt="3D Spatial Grounding Benchmark" class="architecture-img">
-            </div>
+        <div class="card-container architecture-card" style="margin-bottom: 40px; margin-top: 40px;">
+            <h2>3. Real-world Tasks</h2>
+            <img src="resources/images/real.jpg" alt="Real-world Benchmark" class="architecture-img">
         </div>
-    </section>
 
+        <div class="card-container architecture-card" style="margin-bottom: 40px;">
+            <h2>4. Ablation Study</h2>
+            <img src="resources/images/ablation.jpg" alt="3D Spatial Grounding Benchmark" class="architecture-img">
+        </div>
+
+    </section>
 
     <section id="citation" class="section">
         <div class="container">
